@@ -3,7 +3,12 @@
 var sequelizeAuto = require('../');
 var path = require('path');
 var Sequelize = require('sequelize');
-var _ = Sequelize.Utils._;
+var _  = require('lodash').runInContext();
+
+var isOldVersion = 5 > parseInt(Sequelize.version, 10);
+if(isOldVersion){
+    _ = Sequelize.Utils._;
+}
 
 var argv = require('yargs')
   .usage('Usage: sequelise-auto -h <host> -d <database> -u <user> -x [password] -p [port]  --dialect [dialect] -c [/path/to/config] -o [/path/to/models] -t [tableName]')

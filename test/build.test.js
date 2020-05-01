@@ -6,7 +6,15 @@ var expect = chai.expect;
 var helpers = require('./helpers');
 var dialect = helpers.getTestDialect();
 var testConfig = require('./config');
-var _ = helpers.Sequelize.Utils._;
+
+var _  = require('lodash').runInContext();
+
+var isOldVersion = 5 > parseInt(helpers.Sequelize.version, 10);
+
+if(isOldVersion){
+  _ = helpers.Sequelize.Utils._;
+}
+
 var lib = require('../index');
 
 describe(helpers.getTestDialectTeaser("sequelise-auto build"), function() {
