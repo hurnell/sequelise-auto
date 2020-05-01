@@ -126,7 +126,7 @@ For the `-c, --config` option the following JSON/configuration parameters are de
 ## Programmatic API
 
 ```js
-var SequelizeAuto = require('sequelize-auto')
+var SequelizeAuto = require('sequelise-auto')
 var auto = new SequelizeAuto('database', 'user', 'pass');
 
 auto.run(function (err) {
